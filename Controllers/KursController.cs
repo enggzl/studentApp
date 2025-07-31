@@ -78,7 +78,12 @@ namespace efcoreApp.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            var kurs = await _context.Kurslar.FindAsync(id);
+            var kurs = await _context
+                                    .Kurslar
+                                    .Include(k => k.KursKayitlari)
+                                    .ThenInclude(k => k.ogrenci)
+                                    .FirstOrDefaultAsync(k => k.KursId == id);
+                                    
             if (kurs == null)
             {
                 return NotFound();

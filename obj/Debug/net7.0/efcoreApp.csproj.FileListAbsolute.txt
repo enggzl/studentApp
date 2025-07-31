@@ -75,3 +75,4 @@ C:\Users\Acer\Desktop\efcoreApp\obj\Debug\net7.0\refint\efcoreApp.dll
 C:\Users\Acer\Desktop\efcoreApp\obj\Debug\net7.0\efcoreApp.pdb
 C:\Users\Acer\Desktop\efcoreApp\obj\Debug\net7.0\efcoreApp.genruntimeconfig.cache
 C:\Users\Acer\Desktop\efcoreApp\obj\Debug\net7.0\ref\efcoreApp.dll
+C:\Users\Acer\Desktop\efcoreApp\obj\Debug\net7.0\efcoreApp.sourcelink.json

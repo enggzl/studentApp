@@ -1,0 +1,25 @@
+@model KursKayit
+@{
+    ViewData["Title"] = "Kurs Kaydı Oluştur";
+}
+<h2>@ViewData["Title"]</h2>
+<form asp-asp-controller="KursKayit" asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="OgrenciId" class="form-label">Öğrenci Adı</label>
+        <select asp-for="OgrenciId" class="form-control" asp-items="ViewBag.Ogrenciler">
+            <option value="">Seçiniz</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="KursId" class="form-label">Kurs</label>
+        <select asp-for="KursId" class="form-control" asp-items="ViewBag.Kurslar">
+            <option value="">Seçiniz</option>
+        </select>
+    </div>
+    <label></label>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+        <a asp-action="Index" class="btn btn-secondary">Geri Dön</a>
+    </div>
+    
+</form>

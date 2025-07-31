@@ -1,0 +1,18 @@
+@model efcoreApp.Data.Kurs
+@{
+    ViewData["Title"] = "Kurs Ekle";
+}
+<h1>@ViewData["Title"]</h1>
+<p>Yeni bir kurs eklemek için formu doldurun.</p>     
+      
+<form asp-controller="Kurs" asp-action="Create" method="post">
+    <div asp-validation-summary="All"></div>
+    <div class="mb-3">
+        <label asp-for="Baslik" class="form-label">Kurs Adı</label>
+        <input asp-for="Baslik" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Kaydet</button>   
+</form>
+
+
+

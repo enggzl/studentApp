@@ -1,0 +1,26 @@
+@model IEnumerable<efcoreApp.Data.Kurs>
+@{
+    ViewData["Title"] = "Kurs Listesi";
+}               
+<h2>Kurs Listesi</h2>
+<hr>
+<a class="btn btn-primary" asp-action="Create">Yeni Kurs Ekle</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.Baslik)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(mmodelItem => item.Baslik)</td>
+                
+                <td>
+                    <a asp-controller="Kurs" asp-action="Edit" asp-route-id="@item.KursId" class="btn btn-primary">Düzenle</a>
+                    <a asp-controller="Kurs" asp-action="Delete" asp-route-id="@item.KursId" class="btn btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>

@@ -1,0 +1,10 @@
+@model efcoreApp.Data.Ogrenci
+
+<p>
+    <b>@Model.OgrenciAd @Model.OgrenciSoyad </b> isimli öğrenciyi silmek istediğinize emin misiniz?
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="OgrenciId" />
+        <button type="submit" class="btn btn-danger">Evet, sil</button>
+        <a asp-action="Index" class="btn btn-secondary">Hayır, iptal et</a>
+    </form>
+</p>

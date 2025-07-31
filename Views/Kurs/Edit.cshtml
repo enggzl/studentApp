@@ -1,0 +1,19 @@
+@model  efcoreApp.Data.Kurs
+@{
+    ViewData["Title"] = "Kurs Düzenle";
+}       
+<h2>@ViewData["Title"]</h2> 
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="KursId" />
+    <div class="form-group">
+        <label asp-for="@Model.Baslik" class="control-label"></label>
+        <input asp-for="@Model.Baslik" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+    <a asp-action="Index" class="btn btn-secondary">İptal</a>
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <span asp-validation-for="@Model.Baslik" class="text-danger"></span>
+    </div>
+</form>
+    

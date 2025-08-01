@@ -3,19 +3,26 @@
     ViewData["Title"] = "Kurs Düzenle";
 }       
 <h2>@ViewData["Title"]</h2> 
+
 <div class="row">
 <div class="col-8">
-<form asp-action="Edit" method="post">
+<form asp-controller="Kurs" asp-action="Edit" method="post">
     <input type="hidden" asp-for="KursId" />
-    <div class="form-group">
-        <label asp-for="@Model.Baslik" class="control-label"></label>
-        <input asp-for="@Model.Baslik" class="form-control" />
+    <div class="mb-3">
+        <label asp-for="@Model.Baslik" class="control-label">Kurs Adı</label>
+        <input asp-for="@Model.Baslik" class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <label asp-for="OgretmenId" class="form-label">Öğretmen</label>
+        <select asp-for="OgretmenId" asp-items="ViewBag.Ogretmenler" class="form-select" required>     
+            <option value="">Seçiniz</option>  
+        </select>   
     </div>
     <br />
     <button type="submit" class="btn btn-primary">Güncelle</button>
     <a asp-action="Index" class="btn btn-secondary">İptal</a>
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <div class="form-group">
+    <div class="mb-3">
         <span asp-validation-for="@Model.Baslik" class="text-danger"></span>
     </div>
 </form>

@@ -1,0 +1,23 @@
+@model efcoreApp.Data.Ogretmen
+@{
+    ViewData["Title"] = "Delete - " + Model.Ad + " " + Model.Soyad;
+}
+<h2>Öğretmen Sil</h2>
+<form asp-controller="Ogretmen" asp-action="Delete" method="post">
+    <input type="hidden" asp-for="OgretmenId" />
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            <p>Öğretmen Adı: @Model.Ad</p>
+            <p>Öğretmen Soyadı: @Model.Soyad</p>
+            <p>Email Adres: @Model.Eposta</p>
+            <p>Telefon: @Model.Telefon</p>
+        </div>
+        <br>
+        <div class="form-group">
+            <p>Bu öğretmeni silmek istediğinize emin misiniz?</p>
+            <input type="submit" value="Sil" class="btn btn-danger" />
+            <a asp-controller="Ogretmen" asp-action="Index" class="btn btn-secondary">İptal</a>
+        </div>      
+    </div>
+</form>

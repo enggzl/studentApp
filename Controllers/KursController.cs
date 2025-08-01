@@ -1,5 +1,6 @@
 using efcoreApp.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -19,32 +20,32 @@ namespace efcoreApp.Controllers
         public async Task<IActionResult> Index()
         {
             // Kursları veritabanından çek
-            var kurslar = await _context.Kurslar.ToListAsync();
+            var kurslar = await _context
+                                    .Kurslar
+                                    .Include(k => k.Ogretmen) // Öğretmen bilgilerini de dahil et
+                                    .Include(k => k.KursKayitlari) // Kurs kayıtlarını dahil et
+                                    .ThenInclude(k => k.ogrenci) // Öğrenci bilgilerini de dahil
+                                    .ToListAsync();
             // Kursları görüntüle   
             return View(kurslar);
         }
 
         // Örnek: Yeni kurs ekleme
         [HttpGet]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            // Yeni kurs ekleme formunu görüntüle
+            ViewBag.Ogretmenler = new SelectList(await _context.Ogretmenler.ToListAsync(), "OgretmenId", "AdSoyad"); 
             return View();
         }
         [HttpPost]
-
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Kurs model)
         {
-            if (ModelState.IsValid)
-            {
-                // Model geçerliyse kursu ekle
-                _context.Kurslar.Add(model);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
-            // Model geçerli değilse formu tekrar göster
-            return View("Index", model);
+            _context.Kurslar.Add(model);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
         }
+       
         // Örnek: Kurs silme
         [HttpGet]
         public async Task<IActionResult> Delete(int? id)
@@ -83,24 +84,22 @@ namespace efcoreApp.Controllers
                                     .Include(k => k.KursKayitlari)
                                     .ThenInclude(k => k.ogrenci)
                                     .FirstOrDefaultAsync(k => k.KursId == id);
-                                    
             if (kurs == null)
             {
                 return NotFound();
             }
+            
+            ViewBag.Ogretmenler = new SelectList(await _context.Ogretmenler.ToListAsync(), "OgretmenId", "AdSoyad"); 
             return View(kurs);
         }
         [HttpPost]
         public async Task<IActionResult> Edit(Kurs model)
         {
-            if (ModelState.IsValid)
-            {
+          
                 _context.Kurslar.Update(model);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
-            }
-            // Model geçerli değilse formu tekrar göster
-            return View(model);
+            
         }
     }
 }

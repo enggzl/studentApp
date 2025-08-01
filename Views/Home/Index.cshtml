@@ -1,8 +1,28 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Hoşgeldiniz";
 }
-
+<hr>
+<h2 style="text-align: center;">Hoş Geldiniz &#128516;</h2>
+<hr>    
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Eğitim Yönetim Uygulaması</h1>
+    <p>Bu uygulama, öğretmenler, öğrenciler ve kurslar ile ilgili işlemleri yönetmek için geliştirilmiştir.</p>
+    <p>Uygulama, Entity Framework Core kullanarak veritabanı işlemlerini gerçekleştirmektedir.</p>
+    <p>Aşağıdaki bağlantılardan ilgili sayfalara erişebilirsiniz:</p>
 </div>
+<hr>
+<div class="text-center">
+    <a class="btn btn-primary" asp-controller="Ogretmen" asp-action="Index">Öğretmenler</a>
+    <a class="btn btn-primary" asp-controller="Ogrenci" asp-action="Index">Öğrenciler</a>
+    <a class="btn btn-primary" asp-controller="Kurs" asp-action="Index">Kurslar</a>
+    <a class="btn btn-primary" asp-controller="KursKayit" asp-action="Index">Kurs Kayıtları</a>
+</div>
+<hr>
+<div class="text-center">
+    <a class="btn btn-warning" asp-controller="Ogretmen" asp-action="Create">Öğretmen Ekle</a>
+    <a class="btn btn-warning" asp-controller="Ogrenci" asp-action="Create">Öğrenci Ekle</a>
+    <a class="btn btn-warning" asp-controller="Kurs" asp-action="Create">Kurs Ekle</a>
+    <a class="btn btn-warning" asp-controller="KursKayit" asp-action="Create">Kurs Kayıt Ekle</a>
+</div>
+<hr>
+

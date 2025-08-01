@@ -34,6 +34,12 @@
                         <li class="nav-item"></li>
                             <a class="nav-link text-dark" asp-area="" asp-controller="KursKayit" asp-action="Create">Kurs Kayıt Ekle</a>
                         </li>
+                        <li class="nav-item"></li>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Ogretmen" asp-action="Create">Öğretmen Ekle</a>
+                        </li>
+                        <li class="nav-item"></li>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Ogretmen" asp-action="Index">Öğretmen Listesi</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -44,10 +50,9 @@
             @RenderBody()
         </main>
     </div>
-
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2025 - efcoreApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <p>&copy; 2025 - efcoreApp - Uygulama hakkında daha fazla bilgi için <a href="https://github.com/enggzl/studentApp">GitHub sayfasını</a> ziyaret edebilirsiniz.</p>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

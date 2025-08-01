@@ -1,0 +1,56 @@
+@model efcoreApp.Data.Ogretmen
+@{
+    ViewData["Title"] = "Düzenle - " + Model.Ad + " " + Model.Soyad;
+}
+<h2>Öğretmen Düzenle</h2>
+<div class="row">
+    <div class="col-8">
+        <form asp-controller="Ogretmen" asp-action="Edit">
+            <input type="hidden" asp-for="OgretmenId" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="mb-3">
+            <hr />
+            <div class="mb-3">
+                <label asp-for="Ad" class="control-label">Öğretmen Adı</label>
+                <input asp-for="Ad" class="form-control" />
+                <span asp-validation-for="Ad" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Soyad" class="control-label">Öğretmen Soyadı</label>
+                <input asp-for="Soyad" class="form-control" />
+                <span asp-validation-for="Soyad" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Eposta" class="control-label">Email Adres</label>
+                <input asp-for="Eposta" class="form-control" />
+                <span asp-validation-for="Eposta" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Telefon" class="control-label">Telefon</label>
+                <input asp-for="Telefon" class="form-control" />
+                <span asp-validation-for="Telefon" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="BaslamaTarihi" class="control-label">Başlama Tarihi</label>
+                <input asp-for="BaslamaTarihi" class="form-control" type="date" />
+                <span asp-validation-for="BaslamaTarihi" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <input type="submit" value="Kaydet" class="btn btn-primary"/>
+                <a asp-controller="Ogretmen" asp-action="Index" class="btn btn-secondary">Öğretmen Listesi</a>
+            </div>
+        </div>
+        </form>
+    </div>
+    <div class="col-4">
+        <h2>Kurslar</h2>
+        <hr>
+        <div class="list-group">
+            @foreach (var item in Model.Kurslar)
+            {
+                <li class="list-group-item">@item.Baslik</li>
+            }
+        </div>
+    </div>    
+</row>

@@ -1,0 +1,38 @@
+@model IEnumerable<efcoreApp.Data.Ogretmen>
+@{
+    ViewData["Title"] = "Öğretmenler";
+}
+<h2>Öğretmenler</h2>
+<hr>
+<div>
+    <a asp-controller="Ogretmen" asp-action="Create" class="btn btn-primary">Öğretmen Ekle</a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Telefon</th>
+            <th>Email</th>
+            <th>BaslamaTarihi</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ogretmen in Model)
+        {
+            <tr>
+                <td>@ogretmen.Ad</td>
+                <td>@ogretmen.Soyad</td>
+                <td>@ogretmen.Telefon</td>
+                <td>@ogretmen.Eposta</td>
+                 <td>@ogretmen.BaslamaTarihi</td>
+                <td>
+                  
+                    <a class="btn btn-primary" asp-controller="Ogretmen" asp-action="Edit" asp-route-id="@ogretmen.OgretmenId">Düzenle</a> |
+                    <a class="btn btn-danger"asp-controller="Ogretmen" asp-action="Delete" asp-route-id="@ogretmen.OgretmenId">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

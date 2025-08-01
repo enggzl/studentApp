@@ -8,15 +8,19 @@
 <table class="table">
     <thead>
         <tr>
+            <th>@Html.DisplayNameFor(m => m.KursId)</th>
             <th>@Html.DisplayNameFor(m => m.Baslik)</th>
+            <th>@Html.DisplayNameFor(m => m.Ogretmen.AdSoyad)</th>
+            <th>İşlemler</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <td>@Html.DisplayFor(mmodelItem => item.Baslik)</td>
-                
+                <td>@Html.DisplayFor(m => item.KursId)</td>
+                <td>@Html.DisplayFor(m => item.Baslik)</td>
+                <td>@Html.DisplayFor(m => item.Ogretmen.AdSoyad)</td>
                 <td>
                     <a asp-controller="Kurs" asp-action="Edit" asp-route-id="@item.KursId" class="btn btn-primary">Düzenle</a>
                     <a asp-controller="Kurs" asp-action="Delete" asp-route-id="@item.KursId" class="btn btn-danger">Sil</a>

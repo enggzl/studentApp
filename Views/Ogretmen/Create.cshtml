@@ -1,0 +1,31 @@
+@model efcoreApp.Data.Ogretmen
+@{
+    ViewData["Title"] = "Yeni Öğretmen Ekle";
+}   
+<h2>Yeni Öğretmen Ekle</h2>
+<hr>
+<form asp-controller="Ogretmen" asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="Ad"></label>
+        <input asp-for="Ad" class="form-control" required/>
+        <span asp-validation-for="Ad" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Soyad"></label>
+        <input asp-for="Soyad" class="form-control" required/>
+        <span asp-validation-for="Soyad" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Telefon"></label>
+        <input asp-for="Telefon" class="form-control" required/>
+        <span asp-validation-for="Telefon" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Eposta"></label>
+        <input asp-for="Eposta" class="form-control" required/>
+        <span asp-validation-for="Eposta" class="text-danger"></span>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+    <a asp-action="Index" class="btn btn-secondary">Geri Dön</a>
+</form>
